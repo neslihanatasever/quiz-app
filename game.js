@@ -1,5 +1,7 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const questionCounterText = document.getElementById('questionCounter');
+const scoreText = document.getElementById('score');
 
 //question adında bir değişken oluşturdum, html de id özelliği question olan öğeyi seçtim.
 //choice adında bir değişken oluşturdum, class özelliği choice-text olan html öğelerini seçtim.
@@ -57,6 +59,7 @@ getNewQuestion = () => {
     //go to the end page
   }
   questionCounter++;
+  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
@@ -81,6 +84,10 @@ choices.forEach((choice) => {
     const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+      if(classToApply === "correct") {
+        incrementScore(CORRECT_BONUS);
+      }
+
     selectedChoice.parentElement.classList.add(classToApply);
 
     setTimeout ( () => {
@@ -89,5 +96,10 @@ choices.forEach((choice) => {
     }, 1000)
   });
 });
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
 
 startGame();
