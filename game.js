@@ -6,20 +6,15 @@ const progressBarFull = document.getElementById("progressBarFull");
 const loader = document.getElementById("loader");
 const game = document.getElementById("game");
 
-//question adında bir değişken oluşturdum, html de id özelliği question olan öğeyi seçtim.
-//choice adında bir değişken oluşturdum, class özelliği choice-text olan html öğelerini seçtim.
-//Array.from htmlde choice-text sınıfına ait her öğeyi diziye dönüştürüyor.
-
-let currentQuestion = {}; //güncel soru
-let acceptingAnswers = false; //cevapları kabul etme
+let currentQuestion = {}; 
+let acceptingAnswers = false;
 let score = 0;
-let questionCounter = 0; //soru sayacı
-let availableQuestions = []; //mevcut soru
-
+let questionCounter = 0;
+let availableQuestions = [];
 let questions = [];
 
 fetch(
-  "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
+  "https://opentdb.com/api.php?amount=20&category=18&difficulty=easy&type=multiple"
 )
   .then((res) => {
     return res.json();
