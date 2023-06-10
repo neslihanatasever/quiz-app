@@ -3,6 +3,8 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
+const loader = document.getElementById("loader");
+const game = document.getElementById("game");
 
 //question adında bir değişken oluşturdum, html de id özelliği question olan öğeyi seçtim.
 //choice adında bir değişken oluşturdum, class özelliği choice-text olan html öğelerini seçtim.
@@ -16,32 +18,38 @@ let availableQuestions = []; //mevcut soru
 
 let questions = [];
 
-fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")
+fetch(
+  "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
+)
   .then((res) => {
     return res.json();
   })
   .then((loadedQuestions) => {
     console.log(loadedQuestions.results);
-    questions = loadedQuestions.results.map( loadedQuestion => {
+    questions = loadedQuestions.results.map((loadedQuestion) => {
       const formattedQuestion = {
-        question: loadedQuestion.question
+        question: loadedQuestion.question,
       };
 
       const answerChoices = [...loadedQuestion.incorrect_answers];
-      formattedQuestion.answer = Math.floor(Math.random() * 3) +1;
-      answerChoices.splice(formattedQuestion.answer-1,0, loadedQuestion.correct_answer);
+      formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
+      answerChoices.splice(
+        formattedQuestion.answer - 1,
+        0,
+        loadedQuestion.correct_answer
+      );
 
       answerChoices.forEach((choice, index) => {
-        formattedQuestion["choice" + (index+1)] = choice;
-      })
+        formattedQuestion["choice" + (index + 1)] = choice;
+      });
 
       return formattedQuestion;
     });
     startGame();
   })
-  .catch( err => {
+  .catch((err) => {
     console.error(err);
-  })
+  });
 
 //Constants
 const CORRECT_BONUS = 10;
@@ -52,6 +60,8 @@ startGame = () => {
   score = 0;
   availableQuestions = [...questions];
   getNewQuestion();
+  game.classList.remove("hidden");
+  loader.classList.add("hidden");
 };
 
 getNewQuestion = () => {
@@ -106,4 +116,3 @@ incrementScore = (num) => {
   score += num;
   scoreText.innerText = score;
 };
-
