@@ -1,6 +1,7 @@
 # Quiz App with HTML, CSS, and JavaScript
 
 - Netlify: https://sage-conkies-dbabc8.netlify.app
+- This project was made to master the javascript language more and to review past topics. 
 
 ## Topics covered 
 
@@ -15,3 +16,8 @@
 -   CSS - Flexbox, Animtations, and REM units
 
 
+![Screenshot_8](https://github.com/neslihanatasever/quiz-app/assets/75980632/2909ce90-fbc0-42be-b155-ac3b029441a2)
+![Screenshot_9](https://github.com/neslihanatasever/quiz-app/assets/75980632/80ff25f6-a313-4a47-8279-61a7c6ceb9c0)
+![Screenshot_10](https://github.com/neslihanatasever/quiz-app/assets/75980632/086f53c0-a288-4350-b0fe-34e34918eeeb)
+
+- Project Owner: https://github.com/jamesqquick
