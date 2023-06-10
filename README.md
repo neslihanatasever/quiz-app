@@ -2,6 +2,7 @@
 
 - Netlify: https://sage-conkies-dbabc8.netlify.app
 - This project was made to master the JavaScript language more and to review past topics. 
+- .md file of my JavaScript notes: https://github.com/neslihanatasever/quiz-app/blob/main/gamejs.md
 
 ## Topics covered 
 
