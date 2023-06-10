@@ -1,7 +1,7 @@
 # Quiz App with HTML, CSS, and JavaScript
 
 - Netlify: https://sage-conkies-dbabc8.netlify.app
-- This project was made to master the javascript language more and to review past topics. 
+- This project was made to master the JavaScript language more and to review past topics. 
 
 ## Topics covered 
 
